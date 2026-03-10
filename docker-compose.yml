@@ -1,0 +1,58 @@
+version: "3.9"
+
+services:
+
+  esm:
+    build:
+      context: ./esm
+      dockerfile: Dockerfile.esm
+    working_dir: /workspace
+    volumes:
+      - ./data:/data
+      - ./esm:/workspace
+    environment:
+      - DATA_DIR=/data
+
+  surface_mesh:
+    build:
+      context: ./surfdock/surface_mesh
+      dockerfile: Dockerfile.surface_mesh
+    working_dir: /workspace
+    volumes:
+      - ./data:/data
+      - ./surfdock/surface_mesh:/workspace
+    environment:
+      - DATA_DIR=/data
+
+  esm_embedding:
+    build:
+      context: ./surfdock/esm_embedding
+      dockerfile: Dockerfile.esm_embedding
+    working_dir: /workspace
+    volumes:
+      - ./data:/data
+      - ./surfdock/esm_embedding:/workspace
+    environment:
+      - DATA_DIR=/data
+
+  docking_inference:
+    build:
+      context: ./surfdock/docking_inference
+      dockerfile: Dockerfile.docking_inference
+    working_dir: /workspace
+    volumes:
+      - ./data:/data
+      - ./surfdock/docking_inference:/workspace
+    environment:
+      - DATA_DIR=/data
+
+  pose_scoring:
+    build:
+      context: ./surfdock/pose_scoring
+      dockerfile: Dockerfile.pose_scoring
+    working_dir: /workspace
+    volumes:
+      - ./data:/data
+      - ./surfdock/pose_scoring:/workspace
+    environment:
+      - DATA_DIR=/data

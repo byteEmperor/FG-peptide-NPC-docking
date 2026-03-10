@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual environments
+.venv/
+env/
+venv/
+miniforge3/
+conda_env.yml
+
+# Data (optional: if you want to keep results out)
+data/processed/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Logs
+*.log

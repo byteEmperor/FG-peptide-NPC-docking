@@ -1,0 +1,22 @@
+FROM surfdock_base:latest
+
+# Create conda environment
+RUN /home/nat/miniforge3/bin/conda create -y -n esm_embedding python=3.10 && \
+    /home/nat/miniforge3/bin/mamba install -y -n esm_embedding \
+        -c conda-forge \
+        mamba numpy==1.24.4 scipy==1.8.1 pandas==2.1.2 \
+        torch-ema==0.3 torchmetrics==1.2.1 e3nn==0.5.1 \
+        transformers==4.29.2 accelerate==0.15.0 && \
+    /home/nat/miniforge3/bin/mamba clean -ya
+
+# Install CPU-only PyTorch and PyG dependencies
+RUN /home/nat/miniforge3/bin/mamba run -n esm_embedding pip install \
+    torch==2.1.1+cpu torchvision \
+    torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric \
+    huggingface-hub dimorphite_dl prefetch_generator \
+    --index-url https://download.pytorch.org/whl/cpu \
+    -f https://data.pyg.org/whl/torch-2.1.1+cpu.html \
+    --extra-index-url https://pypi.org/simple
+
+# Activate by default
+RUN echo "source /home/nat/miniforge3/bin/activate esm_embedding" >> ~/.bashrc
