@@ -14,6 +14,7 @@ conda_env.yml
 
 # Data (optional: if you want to keep results out)
 data/processed/
+data/results/
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
