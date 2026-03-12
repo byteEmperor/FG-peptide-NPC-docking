@@ -16,6 +16,9 @@ conda_env.yml
 data/processed/
 data/results/
 
+# Exclude the tools folder
+surfdock/surface_mesh/tools
+
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
