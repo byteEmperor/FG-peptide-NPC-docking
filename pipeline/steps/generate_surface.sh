@@ -48,18 +48,24 @@ while IFS=, read -r sample_name processed_path needs_reprocessing || [ -n "$samp
 
     sample_input="$INPUT_DIR/$sample_name"
     sample_output="$OUTPUT_DIR/$sample_name"
-    mkdir -p "$sample_output"
+
+    metadata_file="$sample_output/metadata.json"
+    if [ ! -f "$metadata_file" ]; then
+        echo "[INFO] No metadata found. Processing sample..."
+        mkdir -p "$sample_output"
+    fi
 
     echo "[START] Processing sample: $sample_name"
 
     echo "  > Reducing protein with OpenBabel..."
+    protein_file=$(ls "$INPUT_DIR/$sample_name"/*.pdb | head -n 1)
     docker run --rm \
         -v "$INPUT_DIR":/input \
         -v "$OUTPUT_DIR":/output \
         -v "$PROJECT_DIR/surfdock":/surfdock \
         "$CONTAINER_NAME" \
         conda run -n surface_mesh python /surfdock/surface_mesh/openbabel_reduce.py \
-            --protein /input/"$sample_name"/"1A0Q.pdb" \
+            --protein "/input/$sample_name/$(basename "$protein_file")" \
             --outdir /output/"$sample_name"
 
     echo "  > Generating surface mesh..."
