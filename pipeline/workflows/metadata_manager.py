@@ -1,7 +1,13 @@
 """
 metadata_manager.py
 ___________________
-Scans a sample output directory, generates a metadata CSV, and checks version history.
+
+logic aim:
+processed folder missing -> needs processing
+metadata version outdated -> needs reprocessing
+metadata version current -> skip
+
+Scans a sample output directory against the provided raw samples, generates a metadata CSV, and checks version history.
 If the stored version is older than the current script version, the sample is marked for reprocessing.
 """
 
@@ -40,38 +46,41 @@ def write_metadata(sample_dir: Path):
     with open(metadata_file, "w") as f:
         json.dump(metadata, f)
 
-def generate_csv(output_dir: Path, csv_file: Path):
+def generate_csv(input_dir: Path, output_dir: Path, csv_file: Path):
     """
-    Scan output_dir for samples, create a CSV with:
-    sample_name, processed_path, needs_reprocessing (True/False)
-    :param output_dir:
-    :param csv_file:
-    :return:
+    Scan raw samples and processed samples to determine what needs processing.
     """
-    samples = sorted([d for d in output_dir.iterdir() if d.is_dir()])
+
+    raw_samples = sorted([d for d in input_dir.iterdir() if d.is_dir()])
+
     with open(csv_file, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["sample_name", "processed_path", "needs_reprocessing"])
-        for sample in samples:
-            needs_reprocess = check_version(sample)
-            writer.writerow([sample.name, str(sample), needs_reprocess])
+
+        for sample in raw_samples:
+
+            processed_dir = output_dir / sample.name
+
+            if not processed_dir.exists():
+                needs_reprocess = True
+            else:
+                needs_reprocess = check_version(processed_dir)
+
+            writer.writerow([sample.name, str(processed_dir), needs_reprocess])
 
     print(f"[INFO] Metadata CSV generated at: {csv_file}")
 
-    # Update metadata for processed samples (optional)
-    for sample in samples:
-        if needs_reprocess := check_version(sample):
-            write_metadata(sample)
-
 def main():
     parser = argparse.ArgumentParser(description="Manage processed sample metadata with version control.")
+    parser.add_argument("--input_dir", type=Path, required=True,
+                        help="Path to the directory with samples to process")
     parser.add_argument("--output_dir", type=Path, required=True,
                         help="Directory containing processed sample folders")
     parser.add_argument("--csv_file", type=Path, required=True,
                         help="Path to output CSV metadata file")
     args = parser.parse_args()
 
-    generate_csv(args.output_dir, args.csv_file)
+    generate_csv(args.input_dir, args.output_dir, args.csv_file)
 
 if __name__ == "__main__":
     main()

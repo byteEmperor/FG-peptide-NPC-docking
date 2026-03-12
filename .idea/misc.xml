@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Remote Python 3.7.12 Docker Compose (esm)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.13 (docker_pipeline)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Remote Python 3.10.20 Docker Compose (surface_mesh)" project-jdk-type="Python SDK" />
 </project>
