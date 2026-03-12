@@ -41,6 +41,7 @@ def check_version(sample_dir: Path) -> bool:
     return False
 
 def write_metadata(sample_dir: Path):
+    sample_dir.mkdir(parents=True, exist_ok=True)  # <--- make sure folder exists
     metadata_file = sample_dir / "metadata.json"
     metadata = {"version": CURRENT_VERSION}
     with open(metadata_file, "w") as f:
@@ -67,6 +68,9 @@ def generate_csv(input_dir: Path, output_dir: Path, csv_file: Path):
                 needs_reprocess = check_version(processed_dir)
 
             writer.writerow([sample.name, str(processed_dir), needs_reprocess])
+
+            write_metadata(processed_dir)
+            print(f"[INFO] Metadata .json file updated for sample {sample.name}")
 
     print(f"[INFO] Metadata CSV generated at: {csv_file}")
 
