@@ -29,7 +29,7 @@ RUN conda create -y -n surface_mesh python=3.10
 # Install key packages (CPU-only)
 RUN /home/nat/miniforge3/bin/mamba install -y -n surface_mesh \
     -c conda-forge mamba \
-    numpy=1.24.4 scipy=1.8.1 pandas=2.1.2 \
+    numpy=1.24.4 scipy=1.8.1 pandas=2.1.2 ipython networkx \
     spyrmsd scikit-learn=1.3.2 biopython=1.79 loguru \
     rdkit openbabel tqdm mx::reduce && \
     /home/nat/miniforge3/bin/mamba clean -ya
