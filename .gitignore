@@ -19,6 +19,9 @@ data/results/
 # Exclude the tools folder
 surfdock/surface_mesh/tools
 
+#Exclude the diffdock folder
+diffdock/
+
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
