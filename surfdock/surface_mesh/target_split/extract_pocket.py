@@ -17,27 +17,29 @@ def get_ligand_coords(ligand_file):
 
 
 def extract_pocket(protein_pdb, ligand_file, output_pdb, dist_threshold=8):
-
-    ligand_coords = get_ligand_coords(ligand_file)
-
     parser = PDBParser(QUIET=True)
     structure = parser.get_structure("protein", protein_pdb)[0]
 
-    atoms = Selection.unfold_entities(structure, "A")
-    ns = NeighborSearch(atoms)
+    if dist_threshold is None:
+        # full protein mode
+        class PocketSelect(Select):
+            def accept_residue(self, residue):
+                return True
+    else:
+        ligand_coords = get_ligand_coords(ligand_file)
+        atoms = Selection.unfold_entities(structure, "A")
+        ns = NeighborSearch(atoms)
 
-    close_res = []
-    for c in ligand_coords:
-        close_res.extend(ns.search(c, dist_threshold, level="R"))
+        close_res = []
+        for c in ligand_coords:
+            close_res.extend(ns.search(c, dist_threshold, level="R"))
+        close_res = Selection.uniqueify(close_res)
 
-    close_res = Selection.uniqueify(close_res)
-
-    class PocketSelect(Select):
-        def accept_residue(self, residue):
-            return residue in close_res
+        class PocketSelect(Select):
+            def accept_residue(self, residue):
+                return residue in close_res
 
     io = PDBIO()
     io.set_structure(structure)
     io.save(output_pdb, PocketSelect())
-
     print("Pocket saved:", output_pdb)
