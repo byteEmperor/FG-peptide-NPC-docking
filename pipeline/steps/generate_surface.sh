@@ -4,6 +4,7 @@
 # -----------------------------------------------------------------------------
 
 set -e
+set -x
 
 # ---------------------- ARGUMENTS & DEFAULTS ----------------------
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -17,6 +18,7 @@ OUTPUT_DIR=${2:-${DATA_DIR}/processed/surfaces}
 N_JOBS=${3:-8}
 CONTAINER_NAME=${4:-docker_pipeline-surface_mesh}
 WORKFLOWS_DIR=${5:-${PIPELINE_DIR}/workflows}   # directory where metadata_manager.py lives
+LIGAND=${6:-${DATA_DIR}/raw/ligands/01_GPG.sdf}
 
 METADATA_CSV="$OUTPUT_DIR/surface_metadata.csv"
 
@@ -69,14 +71,18 @@ while IFS=, read -r sample_name processed_path needs_reprocessing || [ -n "$samp
             --outdir /output/"$sample_name"
 
     echo "  > Generating surface mesh..."
+    ligand_file=$(ls "$INPUT_DIR/$sample_name"/*.sdf "$INPUT_DIR/$sample_name"/*.mol2 2>/dev/null | head -n 1)
+
     docker run --rm \
         -v "$INPUT_DIR":/input \
         -v "$OUTPUT_DIR":/output \
+        -v "$PROJECT_DIR/surfdock":/workspace/surfdock \
+        -e PYTHONPATH=/workspace \
         "$CONTAINER_NAME" \
-        python /surfdock/comp_surface/prepare_target/computeTargetMesh_test_samples.py \
-            --data_dir /input/"$sample_name" \
-            --out_dir /output/"$sample_name" \
-            --n_jobs "$N_JOBS"
+        conda run -n surface_mesh python /workspace/surfdock/surface_mesh/compute_target_mesh.py \
+            --protein "/output/$sample_name/$(basename "$protein_file" .pdb)_processed.pdb" \
+            --ligand "/input/$(basename "$LIGAND")" \
+            --output "/output/$sample_name/surface.ply"
 
     echo "[DONE] Sample processed: $sample_name"
 

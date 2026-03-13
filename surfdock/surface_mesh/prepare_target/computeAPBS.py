@@ -4,7 +4,7 @@ from subprocess import Popen, PIPE
 import pymesh
 import tempfile
 
-from default_config.global_vars import apbs_bin, pdb2pqr_bin, multivalue_bin
+from surfdock.surface_mesh.prepare_target.default_config.global_vars import apbs_bin, pdb2pqr_bin, multivalue_bin
 import random
 
 """ 

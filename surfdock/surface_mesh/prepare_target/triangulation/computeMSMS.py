@@ -1,11 +1,12 @@
 import os
 from subprocess import Popen, PIPE
 
-from input_output.read_msms import read_msms
-from triangulation.xyzrn import output_pdb_as_xyzrn
-from default_config.global_vars import msms_bin 
-from default_config.masif_opts import masif_opts
+from surfdock.surface_mesh.prepare_target.input_output.read_msms import read_msms
+from surfdock.surface_mesh.prepare_target.triangulation.xyzrn import output_pdb_as_xyzrn
+from surfdock.surface_mesh.prepare_target.default_config.global_vars import msms_bin
+from surfdock.surface_mesh.prepare_target.default_config.masif_opts import masif_opts
 import random
+import sys
 
 # Pablo Gainza LPDI EPFL 2017-2019
 # Calls MSMS and returns the vertices.
