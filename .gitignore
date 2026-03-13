@@ -22,6 +22,9 @@ surfdock/surface_mesh/tools
 #Exclude the diffdock folder
 diffdock/
 
+#Exclude the esm repo
+esm/
+
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
