@@ -19,9 +19,6 @@ data/results/
 # Exclude the tools folder
 surfdock/surface_mesh/tools
 
-#Exclude the diffdock folder
-diffdock/
-
 #Exclude the esm repo
 esm/
 
