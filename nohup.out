@@ -1,0 +1,60 @@
+[0.028s][warning][cds] Archived non-system classes are disabled because the java.system.class.loader property is specified (value = "com.intellij.util.lang.PathClassLoader"). To use archived non-system classes, this property must not be set
+
+(java:281717): Gtk-WARNING **: 12:50:47.766: Theme parsing error: gtk.css:6664:15: Junk at end of value for padding
+
+(java:281717): Gtk-WARNING **: 12:50:47.832: Theme parsing error: gtk.css:6664:15: Junk at end of value for padding
+Project service: docker_pipeline
+2026-03-18 12:50:54,314 [   7144]   WARN - #c.i.i.SystemHealthMonitor - issue detected: ide.script.launcher.used (ignored)
+2026-03-18 12:50:54,329 [   7159]   WARN - #c.i.s.c.i.StationSocketConnectionLoop - Discovery connection failed with NoSuchFileException (/run/user/1000/jb.station.sock)
+2026-03-18 12:50:57,446 [  10276]   WARN - c.i.d.a.c.p.ToolBasedDockerComposeConfigurationParser - Process wrote something into stderr, may be precursor of a problem. time="2026-03-18T12:50:57+01:00" level=warning msg="/home/nat/Documents/bachelor_project/docker_pipeline/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+
+2026-03-18 12:50:57,611 [  10441]   WARN - c.i.d.a.c.p.ToolBasedDockerComposeConfigurationParser - Process wrote something into stderr, may be precursor of a problem. time="2026-03-18T12:50:57+01:00" level=warning msg="/home/nat/Documents/bachelor_project/docker_pipeline/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+
+2026-03-18 12:51:27,520 [  40350]   WARN - #c.i.i.f.i.FTManager - Duplicate bundled template HTML File.html [HTML File: html (fileTemplates/internal/HTML File.html.ft), HTML File: html (fileTemplates/internal/HTML File.html.ft)]
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - Some skeletons failed to generate
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - Bio.PDB.QCPSuperimposer.qcprot
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - debugpy._vendored.pydevd._pydevd_bundle.pydevd_cython
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - debugpy._vendored.pydevd.pydevd_attach_to_process.attach_linux_amd64
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - greenlet.tests._test_extension
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - greenlet.tests._test_extension_cpp
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - libpyg
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - scipy.optimize._lsap_
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libbackend_with_compiler
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libc10
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libjitbackend_test
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libshm
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libtorch
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libtorch_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libtorch_global_deps
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libtorch_python
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch.lib.libtorchbind_test
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_cluster._fps_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_cluster._graclus_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_cluster._grid_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_cluster._knn_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_cluster._nearest_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_cluster._radius_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_cluster._rw_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_cluster._sampler_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_cluster._version_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_scatter._scatter_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_scatter._segment_coo_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_scatter._segment_csr_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_scatter._version_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_sparse._convert_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_sparse._diag_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_sparse._ego_sample_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_sparse._hgt_sample_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_sparse._metis_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_sparse._neighbor_sample_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_sparse._relabel_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_sparse._rw_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_sparse._saint_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_sparse._sample_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_sparse._spmm_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_sparse._version_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_spline_conv._basis_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_spline_conv._version_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torch_spline_conv._weighting_cpu
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torchvision._C
+2026-03-18 12:51:27,534 [  40364]   WARN - #c.j.p.s.s.PySkeletonRefresher - torchvision.image

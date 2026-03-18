@@ -11,7 +11,7 @@ RUN /home/nat/miniforge3/bin/conda create -y -n esm_embedding python=3.10 && \
 
 # Install CPU-only PyTorch and PyG dependencies
 RUN /home/nat/miniforge3/bin/mamba run -n esm_embedding pip install \
-    torch==2.1.1+cpu torchvision \
+    torch==2.1.1+cpu torchvision bio mdanalysis plyfile spyrmsd\
     torch-scatter torch-sparse torch-cluster torch-spline-conv torch-geometric \
     huggingface-hub dimorphite_dl prefetch_generator \
     --index-url https://download.pytorch.org/whl/cpu \
